@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organization.name %>
+</p>
+<h2>All Departments</h2>
+<ul>
+   <%= @organization.departments.each do |dept|%>
+   <li><%= link_to dept.name, dept%>
+     <%end%>
+</ul>
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %> |
+<%= link_to 'New Department',
+    new_organization_department_path(@organization)) %>
+<!-- <%= link_to 'New', new_organization_department_path(@organization)) %> we have a whole in the routes when we specify, so wee need to fill it in(organization_id) -->
+
+
+<!-- pages can share the links using query string params or(much better way) nested resources: go to routes and create nested routes:
+using the association belongs_to-->
